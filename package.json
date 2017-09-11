@@ -1,0 +1,19 @@
+{
+  "name": "ethvpn-web",
+  "version": "0.0.0",
+  "description": "The ethvpn website",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ethvpn-io/web.git"
+  },
+  "author": "Chance Hudson",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ethvpn-io/web/issues"
+  },
+  "homepage": "https://github.com/ethvpn-io/web#readme"
+}
