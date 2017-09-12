@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "types": [
+      "node"
+    ],
+    "outDir": "./build",
+    "strict": true,
+    "typeRoots": [
+      "./node_modules/@types/*"
+    ]
+  },
+  "include": [
+    "./src/",
+    "./node_modules/web3-typescript-typings/index.d.ts"
+  ]
+}

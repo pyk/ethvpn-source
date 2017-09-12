@@ -2,9 +2,15 @@
   "name": "ethvpn-web",
   "version": "0.0.0",
   "description": "The ethvpn website",
-  "main": "build/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run build && docker run -p 3000:3000 $(docker build . -q)",
+    "build": "npm run compile && npm run bundle && npm run transpile && npm run uglify && npm run clean",
+    "compile": "tsc ./src/index.ts --outDir ./build",
+    "bundle": "browserify ./build/index.js -t [ envify --NODE_ENV $NODE_ENV ] -o ./client/bundle.js",
+    "transpile": "babel ./client/bundle.js --compact --minified --presets es2015 -o client/bundle.min.js",
+    "uglify": "uglifyjs ./client/bundle.min.js --compress --mangle -o ./client/bundle.ugly.js",
+    "clean": "rm -rf ./build ./client/bundle.js ./client/bundle.min.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +21,17 @@
   "bugs": {
     "url": "https://github.com/ethvpn-io/web/issues"
   },
-  "homepage": "https://github.com/ethvpn-io/web#readme"
+  "homepage": "https://github.com/ethvpn-io/web#readme",
+  "dependencies": {
+    "@types/node": "^8.0.28",
+    "mithril": "^1.1.3",
+    "web3": "^1.0.0-beta.18"
+  },
+  "devDependencies": {
+    "@types/mithril": "^1.1.7",
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "browserify": "^14.4.0",
+    "envify": "^4.1.0"
+  }
 }
