@@ -58,6 +58,6 @@ typings/
 .env
 
 build/
-bundle.*.js
+bundle*.js
 
 .DS_Store

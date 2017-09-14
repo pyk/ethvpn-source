@@ -1,5 +1,8 @@
 'use strict';
 
 import * as m from 'mithril';
+import { Home } from './home';
 
-m.render(document.body, 'EthVPN');
+const root = document.body;
+
+m.mount(root, new Home());
