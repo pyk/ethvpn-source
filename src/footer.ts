@@ -5,7 +5,7 @@ import * as m from 'mithril';
 export class Footer {
 
   public view() {
-    return m('div.tc.pa2.w-100.eth-dark-gray.absolute.bottom-0.roboto', [
+    return m('div.tc.pa2.w-100.eth-dark-gray.bottom-0.roboto', [
       m('a', {
         'href': 'https://github.com/ethvpn-io',
         'target': '_blank'
